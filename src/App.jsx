@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const Table = ({ employees }) => {
+  let flag=true;
   if (!employees || employees.length === 0) {
-    return (
-      alert("No employees Found with the give filter")
-    );
+      flag=false;
   }
   return (
-    <table className="table-auto shadow-xl border  border-transparent m-2 mb-8 ">
+    flag?<table className="table-auto shadow-xl border  border-transparent m-2 mb-8 ">
       <thead className="text-black">
         <tr className="bg-black text-white">
           <th className="py-3  ">Name</th>
@@ -80,7 +79,7 @@ const Table = ({ employees }) => {
           </tr>
         ))}
       </tbody>
-    </table>
+    </table>:<p className="font-bold text-lg">Data Not Found</p>
   );
 };
 
