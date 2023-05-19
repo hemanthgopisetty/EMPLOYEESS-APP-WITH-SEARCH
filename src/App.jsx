@@ -10,13 +10,13 @@ const Table = ({ employees }) => {
     );
   }
   return (
-    <table className="table-auto shadow-xl border rounded-full border-transparent">
+    <table className="table-auto shadow-xl border  border-transparent m-2 mb-8 ">
       <thead className="text-black">
         <tr className="bg-black text-white">
           <th className="py-3  ">Name</th>
           <th className="py-3 ">Designation</th>
           <th className="py-3  ">Skills</th>
-          <th className="py-3 text-right right-0 fixed mr-[750px]">Projects</th>
+          <th className="py-3 ">Projects</th>
         </tr>
       </thead>
       <tbody className="text-cyan-900 text-center [&>*:nth-child(even)]:bg-gray-100 [&>*:nth-child(odd)]:bg-white">
