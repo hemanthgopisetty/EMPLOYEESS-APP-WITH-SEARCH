@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 const Table = ({ employees }) => {
   if (!employees || employees.length === 0) {
     return (
-      <p className="text-xl font-extrabold ">
-        {employees ? "No employees found." : "No employees data available."}
-      </p>
+      alert("No employees Found with the give filter")
     );
   }
   return (
