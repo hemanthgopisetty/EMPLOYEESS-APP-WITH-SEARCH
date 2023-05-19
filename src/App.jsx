@@ -31,7 +31,7 @@ const Table = ({ employees }) => {
             </td>
             <td className="py-3 px-6">
               {employee.projects && employee.projects.length > 0 ? (
-                <table>
+                <table className="table-auto">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -43,7 +43,7 @@ const Table = ({ employees }) => {
                   <tbody>
                     {employee.projects.map((project, index) => (
                       <tr key={index} className="rounded-lg">
-                        <td className="w-9 border border-black/30 ">
+                        <td className=" border border-black/30 ">
                           {project.name ? project.name : "N/A"}
                         </td>
                         <td className="border border-black/30">
@@ -61,10 +61,10 @@ const Table = ({ employees }) => {
                               ))
                             : "N/A"}
                         </td>
-                        <td className="w-9 border border-black/30">
+                        <td className=" border border-black/30 ">
                           {project.tasks && project.tasks.length > 0
                             ? project.tasks.map((task, idx) => (
-                                <div key={idx}>
+                                <div key={idx} className="">
                                   {task.name ? task.name : "N/A"} -{" "}
                                   {task.status ? task.status : "N/A"}
                                 </div>
@@ -230,6 +230,7 @@ const App = () => {
         <button
           className="m-2 p-2 border-2 rounded-lg bg-white font-bold"
           onClick={handleButtonClick}
+          title="Keep this option hide to see the filter results"
         >
           {flag ? <p>Show</p> : <p>Hide</p>}
         </button>
