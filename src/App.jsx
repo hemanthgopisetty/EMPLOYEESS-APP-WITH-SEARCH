@@ -194,6 +194,7 @@ const App = () => {
           className={`m-2 p-2 border-2 rounded-lg bg-white font-bold ${
             searchOption === "name" ? "bg-gray-300" : ""
           }`}
+          title="Name+show =>filter results"
           onClick={() => handleSearchOptionChange("name")}
         >
           Name
@@ -202,6 +203,7 @@ const App = () => {
           className={`m-2 p-2 border-2 rounded-lg bg-white font-bold ${
             searchOption === "skills" ? "bg-gray-300" : ""
           }`}
+          title="Skill+show =>filter results"
           onClick={() => handleSearchOptionChange("skills")}
         >
           Skills
