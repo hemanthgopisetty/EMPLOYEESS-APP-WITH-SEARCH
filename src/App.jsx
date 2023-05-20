@@ -110,7 +110,7 @@ const App = () => {
         >
           {flag ? <p>Show</p> : <p>Clear</p>}
         </button>
-      </div>t
+      </div>
       <div className="flex items-center justify-center">
         {flag ? (
           <Table employees={employees} />
