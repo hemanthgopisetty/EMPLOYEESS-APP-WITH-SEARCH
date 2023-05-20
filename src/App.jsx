@@ -88,6 +88,7 @@ const App = () => {
           <input
             type="text"
             value={searchName}
+            placeholder="Enter the Name"
             onChange={handleSearchNameChange}
             className="p-2 m-2 rounded-md"
           />
@@ -95,6 +96,7 @@ const App = () => {
           <input
             type="text"
             value={searchSkills}
+            placeholder="Enter the Skill"
             onChange={handleSearchSkillsChange}
             className="p-2 m-2 rounded-md"
           />
@@ -106,7 +108,7 @@ const App = () => {
         >
           {flag ? <p>Show</p> : <p>Hide</p>}
         </button>
-      </div>
+      </div>t
       <div className="flex items-center justify-center">
         {flag ? (
           <Table employees={employees} />
