@@ -104,9 +104,9 @@ const App = () => {
         <button
           className="m-2 p-2 border-2 rounded-lg bg-white font-bold"
           onClick={handleButtonClick}
-          title="Keep this option hide to see the filter results"
+          title="First Click this option to see the results"
         >
-          {flag ? <p>Show</p> : <p>Hide</p>}
+          {flag ? <p>Show</p> : <p>Clear</p>}
         </button>
       </div>t
       <div className="flex items-center justify-center">
