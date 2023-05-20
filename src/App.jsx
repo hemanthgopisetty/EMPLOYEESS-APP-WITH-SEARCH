@@ -38,10 +38,12 @@ const App = () => {
 
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value);
+    setFlag(false);
   };
 
   const handleSearchSkillsChange = (event) => {
     setSearchSkills(event.target.value);
+    setFlag(false);
   };
 
   const handleSearchOptionChange = (selectedOption) => {
