@@ -6,7 +6,7 @@ const Table = ({ employees }) => {
         flag=false;
     }
     return (
-      flag?<table className="table-auto shadow-xl border  border-transparent m-2 mb-8 ">
+      flag?<table className="table-auto shadow-xl border  border-transparent ml-40 mr-40 mt-2 mb-16 ">
         <thead className="text-black">
           <tr className="bg-black text-white">
             <th className="py-3  ">Name</th>
@@ -42,25 +42,25 @@ const Table = ({ employees }) => {
                           <td className=" border border-black/30 ">
                             {project.name ? project.name : "N/A"}
                           </td>
-                          <td className="border border-black/30">
+                          <td className="border border-black/30 py-3 px-6">
                             {project.description
                               ? project.description
                               : "N/A"}
                           </td>
-                          <td className=" border border-black/30">
+                          <td className=" border border-black/30 py-3 px-6">
                             {project.team && project.team.length > 0
                               ? project.team.map((member, idx) => (
-                                  <div key={idx}>
+                                  <div key={idx} className="py-3 px-6">
                                     {member.name ? member.name : "N/A"} -{" "}
                                     {member.role ? member.role : "N/A"}
                                   </div>
                                 ))
                               : "N/A"}
                           </td>
-                          <td className=" border border-black/30 ">
+                          <td className=" border border-black/30 py-3 px-3 m-1 ">
                             {project.tasks && project.tasks.length > 0
                               ? project.tasks.map((task, idx) => (
-                                  <div key={idx} className="">
+                                  <div key={idx} className="py-3 px-3 bg-inherit border">
                                     {task.name ? task.name : "N/A"} -{" "}
                                     {task.status ? task.status : "N/A"}
                                   </div>
