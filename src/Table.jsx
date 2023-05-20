@@ -30,10 +30,10 @@ const Table = ({ employees }) => {
                   <table className="table-auto">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Team</th>
-                        <th>Tasks</th>
+                        <th className="py-3 px-6">Name</th>
+                        <th className="py-3 px-6">Description</th>
+                        <th className="py-3 px-6">Team</th>
+                        <th className="py-3 px-6">Tasks</th>
                       </tr>
                     </thead>
                     <tbody>

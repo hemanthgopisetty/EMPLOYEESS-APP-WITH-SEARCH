@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import FilterData from "./Filter";
 import Table from "./Table";
 
-
 const App = () => {
   const [flag, setFlag] = useState(true);
   const [employees, setEmployees] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [searchSkills, setSearchSkills] = useState("");
-  const [searchOption, setSearchOption] = useState("name");
+  const [searchDesignation, setSearchDesignation] = useState("");
+  const [searchOption, setSearchOption] = useState("Choose");
   const [searchOptions, setSearchOptions] = useState([
+    { value: "Choose", label: "Choose the option" },
     { value: "name", label: "Name" },
     { value: "skills", label: "Skills" },
+    { value: "designation", label: "Designation" },
   ]);
 
   useEffect(() => {
@@ -31,9 +33,10 @@ const App = () => {
 
   const handleButtonClick = () => {
     setFlag(!flag);
-    setSearchOption("name");
+    setSearchOption("Choose");
     setSearchName("");
     setSearchSkills("");
+    setSearchDesignation("");
   };
 
   const handleSearchNameChange = (event) => {
@@ -46,20 +49,31 @@ const App = () => {
     setFlag(false);
   };
 
+  const handleSearchDesignationChange = (event) => {
+    setSearchDesignation(event.target.value);
+    setFlag(false);
+  };
+
   const handleSearchOptionChange = (selectedOption) => {
     setSearchOption(selectedOption.value);
-    setSearchName(""); 
+    setSearchName("");
     setSearchSkills("");
+    setSearchDesignation("");
 
-    
-    if (selectedOption.value === "name" || selectedOption.value === "skills") {
-      setFlag(false); 
+    if (
+      selectedOption.value === "name" ||
+      selectedOption.value === "skills" ||
+      selectedOption.value === "designation"
+    ) {
+      setFlag(false);
     } else {
-      setFlag(true); 
+      setFlag(true);
     }
     setSearchOptions([
-      { value: "name", label: "Name" },
-      { value: "skills", label: "Skills" },
+      { value: "Choose", label: "Choose the option" },
+      ...(selectedOption.value !== "Choose"
+        ? searchOptions.filter((option) => option.value !== "Choose")
+        : []),
     ]);
   };
 
@@ -72,7 +86,6 @@ const App = () => {
           onChange={(e) =>
             handleSearchOptionChange(
               searchOptions.find((option) => option.value === e.target.value)
-             
             )
           }
           className="m-2 p-2 border-2 rounded-lg bg-white font-bold"
@@ -94,12 +107,24 @@ const App = () => {
             onChange={handleSearchNameChange}
             className="p-2 m-2 rounded-md"
           />
-        ) : (
+        ) : searchOption === "skills" ? (
           <input
             type="text"
             value={searchSkills}
             placeholder="Enter the Skill"
             onChange={handleSearchSkillsChange}
+            className="p-2 m-2 rounded-md"
+          />
+        ) : (
+          <input
+            type="text"
+            value={searchDesignation}
+            placeholder={
+              searchOption === "Choose"
+                ? "Choose some option"
+                : "Enter the Designation"
+            }
+            onChange={handleSearchDesignationChange}
             className="p-2 m-2 rounded-md"
           />
         )}
@@ -118,6 +143,7 @@ const App = () => {
           <FilterData
             searchName={searchName}
             searchSkills={searchSkills}
+            searchDesignation={searchDesignation}
             searchOption={searchOption}
             employees={employees}
           />
@@ -128,6 +154,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
